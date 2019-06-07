@@ -174,7 +174,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FixtureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PositionController.cs" />
@@ -184,8 +183,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Fixture.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Position.cs" />
@@ -255,11 +254,6 @@
     <Content Include="Views\Section\Details.cshtml" />
     <Content Include="Views\Section\Edit.cshtml" />
     <Content Include="Views\Section\Index.cshtml" />
-    <Content Include="Views\Fixture\Create.cshtml" />
-    <Content Include="Views\Fixture\Delete.cshtml" />
-    <Content Include="Views\Fixture\Details.cshtml" />
-    <Content Include="Views\Fixture\Edit.cshtml" />
-    <Content Include="Views\Fixture\Index.cshtml" />
     <Content Include="Views\Position\Create.cshtml" />
     <Content Include="Views\Position\Delete.cshtml" />
     <Content Include="Views\Position\Details.cshtml" />

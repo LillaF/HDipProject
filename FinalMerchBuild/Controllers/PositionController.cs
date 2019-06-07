@@ -53,7 +53,7 @@ namespace FinalMerchBuild.Controllers
             {
                 db.Bays.Add(position);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             return View(position);

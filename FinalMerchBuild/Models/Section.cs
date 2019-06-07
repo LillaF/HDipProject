@@ -17,7 +17,7 @@ namespace FinalMerchBuild.Models
         [StringLength(50)]
         [Display(Name = "Section Name")]
         public string SectionName { get; set; }
-
+        [Range(1, 9)]
         [Display(Name = "Bay Name")]
         [Required]
         public int BayName { get; set; }
@@ -40,7 +40,7 @@ namespace FinalMerchBuild.Models
         public DateTime StartDate { get; set; }
 
 
-        public virtual ICollection<Fixture> Fixtures { get; set; }
+        public virtual ICollection <Position> Positions { get; set; }
 
     }
 }

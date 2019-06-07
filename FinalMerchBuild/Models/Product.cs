@@ -33,6 +33,6 @@ namespace FinalMerchBuild.Models
         }
 
 
-        public virtual Position Position { get; set; }
+        public virtual ICollection <Position> Positions { get; set; }
     }
 }

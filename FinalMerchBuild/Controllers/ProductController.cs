@@ -194,6 +194,16 @@ namespace FinalMerchBuild.Controllers
             return RedirectToAction("Index");
         }
 
+        //// POST: Product/DeleteSel
+        //[HttpPost, ActionName("DeleteSel")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteSel(IEnumerable<int>productsToDelete)
+        //{
+        //    Product product = db.Products.Find(productsToDelete);
+        //    db.Products.Where(x => productsToDelete.Contains(x.ProductId)).ToList().RemoveAll(product);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
         protected override void Dispose(bool disposing)
         {
             if (disposing)
