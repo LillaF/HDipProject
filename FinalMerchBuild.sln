@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalMerchBuild", "FinalMerchBuild\FinalMerchBuild.csproj", "{47B42CAC-4FEA-4E21-B807-DD332485F6F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalMerchBuild.Tests", "FinalMerchBuild.Tests\FinalMerchBuild.Tests.csproj", "{36035E0B-DB34-40CA-ABFA-B3581341F9AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47B42CAC-4FEA-4E21-B807-DD332485F6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B42CAC-4FEA-4E21-B807-DD332485F6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47B42CAC-4FEA-4E21-B807-DD332485F6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B42CAC-4FEA-4E21-B807-DD332485F6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36035E0B-DB34-40CA-ABFA-B3581341F9AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36035E0B-DB34-40CA-ABFA-B3581341F9AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36035E0B-DB34-40CA-ABFA-B3581341F9AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36035E0B-DB34-40CA-ABFA-B3581341F9AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4003B1D-765D-4E8E-941F-BBB2B86CD785}
+	EndGlobalSection
+EndGlobal
