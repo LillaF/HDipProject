@@ -1,0 +1,113 @@
+﻿@model IEnumerable<FinalMerchBuild.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Product Listings </h2>
+
+<h4></h4>
+<h4>Import CSV File   -   Do be aware that the file will not be shown and duplicates may be added to the table</h4>
+<h4></h4>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="postedFile" /> <input type="submit" value="Import" />
+
+    }
+</body>
+</html>
+
+<h4></h4>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Select
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UPC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Width)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Depth)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <input type="checkbox" name="productsToDelete" id="productsToDelete" value="item.ProductID" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UPC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depth)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@using (Html.BeginForm("DeleteSel", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="submit" value="Delete Selected" />
+}
+
+<h4></h4>
+<h4></h4>
+<h4>Import CSV File   -   Do be aware that the file will not be shown and duplicates may be added to the table</h4>
+<h4></h4>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="postedFile" /> <input type="submit" value="Import" />
+
+    }
+</body>
+</html>
