@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using FinalMerchBuild.DAL;
 using FinalMerchBuild.Models;
 
-namespace FinalMerchBuild.Controllers
+namespace FinalMerchBuild
 {
     public class BayController : Controller
     {
@@ -38,10 +38,17 @@ namespace FinalMerchBuild.Controllers
         }
 
         // GET: Bay/Create
-        public ActionResult Create()
+        // GET: Bay/Create
+        public ActionResult Create(Section section)
         {
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName");
-            return View();
+            Bay newBay = db.Bays.OrderByDescending(b => b.BayID).FirstOrDefault();
+            //var bays = db.Bays.Include(b => b.SectionName);
+
+            newBay.XLocation = newBay.XLocation + newBay.BayWidth;
+            newBay.BayWidth = 0;
+            newBay.BayName++;
+            return View(newBay);
         }
 
         // POST: Bay/Create
@@ -49,13 +56,13 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BayID,SectionID,SectionName,BayName,BayWidth")] Bay bay)
+        public ActionResult Create([Bind(Include = "BayID,SectionID,SectionName,BayName,BayWidth,XLocation,YLocation")] Bay bay)
         {
             if (ModelState.IsValid)
             {
                 db.Bays.Add(bay);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
@@ -83,7 +90,7 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BayID,SectionID,SectionName,BayName,BayWidth")] Bay bay)
+        public ActionResult Edit([Bind(Include = "BayID,SectionID,SectionName,BayName,BayWidth,XLocation,YLocation")] Bay bay)
         {
             if (ModelState.IsValid)
             {

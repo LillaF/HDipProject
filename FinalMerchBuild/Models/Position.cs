@@ -16,7 +16,7 @@ namespace FinalMerchBuild.Models
         [Required]
         public int SectionID { get; set; }
 
-        [Display(Name = "section Name")]
+        [Display(Name = "Section Name")]
         [Required]
         public int SectionName { get; set; }
 

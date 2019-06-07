@@ -173,8 +173,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BayController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -255,16 +255,16 @@
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Bay\Create.cshtml" />
-    <Content Include="Views\Bay\Delete.cshtml" />
-    <Content Include="Views\Bay\Details.cshtml" />
-    <Content Include="Views\Bay\Edit.cshtml" />
-    <Content Include="Views\Bay\Index.cshtml" />
     <Content Include="Views\Section\Create.cshtml" />
     <Content Include="Views\Section\Delete.cshtml" />
     <Content Include="Views\Section\Details.cshtml" />
     <Content Include="Views\Section\Edit.cshtml" />
     <Content Include="Views\Section\Index.cshtml" />
+    <Content Include="Views\Bay\Create.cshtml" />
+    <Content Include="Views\Bay\Delete.cshtml" />
+    <Content Include="Views\Bay\Details.cshtml" />
+    <Content Include="Views\Bay\Edit.cshtml" />
+    <Content Include="Views\Bay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

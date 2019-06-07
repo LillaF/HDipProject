@@ -3,56 +3,110 @@
 @{
     ViewBag.Title = "Details";
 }
+<style>
+    table {
+        font-family: Calibri, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #d6ecfb;
+    }
+</style>
 <h2>Details</h2>
 
+<h4>Section Details</h4>
 <div>
-    <h4>Section</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SectionName)
-        </dt>
+    <dl>
 
         <dd>
-            @Html.DisplayFor(model => model.SectionName)
+            <table class="table" , style="background-color:#a0e4fa">
+
+                <tr>
+                    <th>Section Name</th>
+                    <th>Height</th>
+                    <th>Width</th>
+                    <th>Depth</th>
+
+                </tr>
+
+                <td>
+                    @Html.DisplayFor(model => model.SectionName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Height)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Width)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Depth)
+                </td
+
+                <td>
+                    @Html.DisplayFor(model => model.StartDate)
+                </td>
+            </table>
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Height)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Height)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Width)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Width)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Depth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Depth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-
     </dl>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.SectionID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<h4>Bays within selected Section</h4>
+<div>
+    <dl>
+        <dd>
+            <table class="table" , style="background-color:#e5f3c0">
+                <tr>
+                    <th>Bay Name</th>
+                    <th>Width</th>
+                    <th>X Location</th>
+                    <th>Y Location</th>
+
+                </tr>
+                @foreach (var item in Model.Bays)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BayName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BayWidth)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.XLocation)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YLocation)
+                        </td>
+
+                        <td>
+
+                            @Html.ActionLink("Edit", "../Bay/Edit", new { id = item.BayID }) |
+                            @Html.ActionLink("Details", "../Bay/Details", new { id = item.BayID }) |
+                            @Html.ActionLink("Delete", "../Bay/Delete", new { id = item.BayID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </dd>
+    </dl>
+</div>

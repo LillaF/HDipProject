@@ -23,6 +23,12 @@
         <th>
             @Html.DisplayNameFor(model => model.BayWidth)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YLocation)
+        </th>
         <th></th>
     </tr>
 
@@ -39,6 +45,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BayWidth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YLocation)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BayID }) |

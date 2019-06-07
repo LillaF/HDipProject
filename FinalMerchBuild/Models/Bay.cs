@@ -27,6 +27,12 @@ namespace FinalMerchBuild.Models
         [Range(30, 200)]
         public double BayWidth { get; set; }
 
+        [Required]
+        [Range(0, 180)]
+        public double XLocation { get; set; }
+        [Required]
+        [Range(0, 190)]
+        public double YLocation { get; set; }
 
 
         public virtual Section Section { get; set; }
