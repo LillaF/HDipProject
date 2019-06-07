@@ -11,107 +11,112 @@ using FinalMerchBuild.Models;
 
 namespace FinalMerchBuild.Controllers
 {
-    public class PositionController : Controller
+    public class BayController : Controller
     {
         private MerchBuildContext db = new MerchBuildContext();
 
-        // GET: Position
+        // GET: Bay
         public ActionResult Index()
         {
-            return View(db.Bays.ToList());
+            var bays = db.Bays.Include(b => b.Section);
+            return View(bays.ToList());
         }
 
-        // GET: Position/Details/5
+        // GET: Bay/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Position position = db.Bays.Find(id);
-            if (position == null)
+            Bay bay = db.Bays.Find(id);
+            if (bay == null)
             {
                 return HttpNotFound();
             }
-            return View(position);
+            return View(bay);
         }
 
-        // GET: Position/Create
+        // GET: Bay/Create
         public ActionResult Create()
         {
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName");
             return View();
         }
 
-        // POST: Position/Create
+        // POST: Bay/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PositionID,Shelf,UPC,XLocation")] Position position)
+        public ActionResult Create([Bind(Include = "BayID,SectionID,SectionName,BayName,BayWidth")] Bay bay)
         {
             if (ModelState.IsValid)
             {
-                db.Bays.Add(position);
+                db.Bays.Add(bay);
                 db.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("Index");
             }
 
-            return View(position);
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
+            return View(bay);
         }
 
-        // GET: Position/Edit/5
+        // GET: Bay/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Position position = db.Bays.Find(id);
-            if (position == null)
+            Bay bay = db.Bays.Find(id);
+            if (bay == null)
             {
                 return HttpNotFound();
             }
-            return View(position);
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
+            return View(bay);
         }
 
-        // POST: Position/Edit/5
+        // POST: Bay/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PositionID,Shelf,UPC,XLocation")] Position position)
+        public ActionResult Edit([Bind(Include = "BayID,SectionID,SectionName,BayName,BayWidth")] Bay bay)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(position).State = EntityState.Modified;
+                db.Entry(bay).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(position);
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
+            return View(bay);
         }
 
-        // GET: Position/Delete/5
+        // GET: Bay/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Position position = db.Bays.Find(id);
-            if (position == null)
+            Bay bay = db.Bays.Find(id);
+            if (bay == null)
             {
                 return HttpNotFound();
             }
-            return View(position);
+            return View(bay);
         }
 
-        // POST: Position/Delete/5
+        // POST: Bay/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Position position = db.Bays.Find(id);
-            db.Bays.Remove(position);
+            Bay bay = db.Bays.Find(id);
+            db.Bays.Remove(bay);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

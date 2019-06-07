@@ -47,7 +47,7 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SectionID,SectionName,BayName,Height,Width,Depth,StartDate")] Section section)
+        public ActionResult Create([Bind(Include = "SectionID,SectionName,Height,Width,Depth,StartDate")] Section section)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SectionID,SectionName,BayName,Height,Width,Depth,StartDate")] Section section)
+        public ActionResult Edit([Bind(Include = "SectionID,SectionName,Height,Width,Depth,StartDate")] Section section)
         {
             if (ModelState.IsValid)
             {

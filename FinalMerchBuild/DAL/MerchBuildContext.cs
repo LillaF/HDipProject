@@ -14,8 +14,9 @@ namespace FinalMerchBuild.DAL
         public MerchBuildContext() : base("MerchBuildContext")
         { }
         public DbSet<Section> Sections { get; set; }
-        public DbSet<Position> Bays { get; set; }
-        //public DbSet<Product> Products { get; set; }
+        public DbSet<Bay> Bays { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,7 +24,7 @@ namespace FinalMerchBuild.DAL
 
         }
 
-        public System.Data.Entity.DbSet<FinalMerchBuild.Models.Product> Products { get; set; }
+        //public System.Data.Entity.DbSet<FinalMerchBuild.Models.Product> Products { get; set; }
 
     }
 }

@@ -192,7 +192,17 @@ namespace FinalMerchBuild.Controllers
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
+        }    
+        //// POST: Product/Delete/5
+        //[HttpPost, ActionName("DeleteAll")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteAllConfirmed(IEnumerable<int> productsToDelete)
+        //{
+        //    Product product = db.Products.Find(productsToDelete);
+        //    db.Products.Where(x => productsToDelete.Contains(x.ProductId)).ToList().RemoveAll(product);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         //// POST: Product/DeleteSel
         //[HttpPost, ActionName("DeleteSel")]
@@ -200,7 +210,7 @@ namespace FinalMerchBuild.Controllers
         //public ActionResult DeleteSel(IEnumerable<int>productsToDelete)
         //{
         //    Product product = db.Products.Find(productsToDelete);
-        //    db.Products.Where(x => productsToDelete.Contains(x.ProductId)).ToList().RemoveAll(product);
+        //    db.Products.Where(x => productsToDelete.Contains(x.ProductId)).ToList().RemoveAt(product);
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
         //}

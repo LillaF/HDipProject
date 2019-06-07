@@ -9,14 +9,20 @@ namespace FinalMerchBuild.Models
 {
     public class Position
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key]
-         public int PositionID { get; set; }
+        public int PositionID { get; set; }
 
+        [Required]
+        public int SectionID { get; set; }
+
+        [Display(Name = "section Name")]
         [Required]
         public int SectionName { get; set; }
 
+        [Display(Name = "Bay Name")]
         [Required]
-        public int ProductName { get; set; }
+        public int BayName { get; set; }
 
         [Required]
         [Range(0, 9)]
@@ -28,8 +34,8 @@ namespace FinalMerchBuild.Models
         [Required]
         public double XLocation { get; set; }
 
-        public virtual Product Product { get; set; }
-        public virtual ICollection<Section> Sections { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
+        public virtual Bay Bay { get; set; }
 
     }
 }

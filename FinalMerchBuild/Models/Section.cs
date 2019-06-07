@@ -17,20 +17,16 @@ namespace FinalMerchBuild.Models
         [StringLength(50)]
         [Display(Name = "Section Name")]
         public string SectionName { get; set; }
-        [Range(1, 9)]
-        [Display(Name = "Bay Name")]
-        [Required]
-        public int BayName { get; set; }
 
-        [Display(Name = "Bay Height")]
-        [Required, Range(50, 200)]
+        [Display(Name = "Section Height")]
+        [Required, Range(20, 200)]
         public double Height { get; set; }
 
-        [Display(Name = "Bay Width")]
+        [Display(Name = "Section Width")]
         [Required, Range(30, 200)]
         public double Width { get; set; }
 
-        [Display(Name = "Bay Depth")]
+        [Display(Name = "Section Depth")]
         [Required, Range(15, 60)]
         public double Depth { get; set; }
 
@@ -40,7 +36,7 @@ namespace FinalMerchBuild.Models
         public DateTime StartDate { get; set; }
 
 
-        public virtual ICollection <Position> Positions { get; set; }
+        public virtual ICollection<Bay> Bays { get; set; }
 
     }
 }
