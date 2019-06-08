@@ -9,25 +9,37 @@ namespace FinalMerchBuild.Models
 {
     public class Position
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //public enum BayName
+        //{
+        //    A, B, C, D, E, F, G, H, I, J, K, L
+        //}
+
         [Key]
         public int PositionID { get; set; }
 
         [Required]
         public int SectionID { get; set; }
 
-        [Display(Name = "Section Name")]
-        [Required]
-        public int SectionName { get; set; }
+        //[Required]
+        //[StringLength(50)]
+        //[Display(Name = "Section Name")]
+        //public string SectionName { get; set; }
+
+        //[Required]
+        //public int BayID { get; set; }
 
         [Display(Name = "Bay Name")]
         [Required]
-        public int BayName { get; set; }
+        //[RegularExpression(@"^[a-zA-L]+$", ErrorMessage = "Only letters A-L")]
+        public string BayName { get; set; }
 
         [Required]
         [Range(0, 9)]
         public int Shelf { get; set; }
 
+        [Required, StringLength(50)]
+        public string Name { get; set; }
+        public string Size { get; set; }
         [Required]
         public string UPC { get; set; }
 
@@ -36,6 +48,6 @@ namespace FinalMerchBuild.Models
 
         public virtual ICollection<Product> Products { get; set; }
         public virtual Bay Bay { get; set; }
-
+        public virtual Section Section { get; set; }
     }
 }

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<FinalMerchBuild.Models.Position>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bay.BayID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SectionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SectionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shelf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UPC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XLocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bay.BayID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SectionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SectionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shelf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UPC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PositionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PositionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PositionID })
+        </td>
+    </tr>
+}
+
+</table>

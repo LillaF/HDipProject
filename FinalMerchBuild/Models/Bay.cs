@@ -15,7 +15,10 @@ namespace FinalMerchBuild.Models
         [Required]
         public int SectionID { get; set; }
 
-        public int SectionName { get; set; }
+        //[Required]
+        //[StringLength(50)]
+        //[Display(Name = "Section Name")]
+        //public string SectionName { get; set; }
         [Key]
         public int BayID { get; set; }
 
