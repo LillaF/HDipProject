@@ -6,32 +6,25 @@ using System.Web;
 
 namespace FinalMerchBuild.Models
 {
-    public enum BayName
-    {
-        A, B, C, D, E, F, G, H, I, J, K, L
-    }
+
     public class Bay
     {
         [Required]
         public int SectionID { get; set; }
 
-        //[Required]
-        //[StringLength(50)]
-        //[Display(Name = "Section Name")]
-        //public string SectionName { get; set; }
         [Key]
         public int BayID { get; set; }
 
         [Display(Name = "Bay Name")]
         [Required]
-        public BayName? BayName { get; set; }
+        public int BayName { get; set; }
 
         [Required]
         [Range(30, 200)]
         public double BayWidth { get; set; }
 
         [Required]
-        [Range(0, 180)]
+        [Range(0, 1180)]
         public double XLocation { get; set; }
         [Required]
         [Range(0, 190)]

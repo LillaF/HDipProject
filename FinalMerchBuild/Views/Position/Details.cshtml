@@ -1,0 +1,57 @@
+﻿@model FinalMerchBuild.Models.Position
+
+@{
+    ViewBag.Title = "Position Details";
+}
+
+<h2>Position Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Section.SectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.SectionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shelf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UPC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UPC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PositionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

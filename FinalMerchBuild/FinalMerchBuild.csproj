@@ -177,6 +177,7 @@
     <Compile Include="Controllers\BayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="DAL\MerchBuildContext.cs" />
@@ -265,6 +266,12 @@
     <Content Include="Views\Bay\Details.cshtml" />
     <Content Include="Views\Bay\Edit.cshtml" />
     <Content Include="Views\Bay\Index.cshtml" />
+    <Content Include="Views\Position\Create.cshtml" />
+    <Content Include="Views\Position\Delete.cshtml" />
+    <Content Include="Views\Position\Details.cshtml" />
+    <Content Include="Views\Position\Edit.cshtml" />
+    <Content Include="Views\Position\Index.cshtml" />
+    <Content Include="Views\Bay\CreateNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

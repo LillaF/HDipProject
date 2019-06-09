@@ -9,7 +9,6 @@ namespace FinalMerchBuild.Models
 {
     public class Section
     {
-
         [Key]
         public int SectionID { get; set; }
 
@@ -23,7 +22,7 @@ namespace FinalMerchBuild.Models
         public double Height { get; set; }
 
         [Display(Name = "Section Width")]
-        [Required, Range(30, 200)]
+        [Required, Range(30, 1200)]
         public double Width { get; set; }
 
         [Display(Name = "Section Depth")]

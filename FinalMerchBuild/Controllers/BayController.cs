@@ -37,17 +37,48 @@ namespace FinalMerchBuild.Controllers
             return View(bay);
         }
 
+
         // GET: Bay/Create
-        public ActionResult Create()
+        public ActionResult CreateNew(int? id)
         {
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName");
+
+            return View();
+        }
+
+        // POST: Bay/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateNew([Bind(Include = "BayID,SectionID,BayWidth,BayName,XLocation,YLocation")] Bay bay)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Bays.Add(bay);
+                db.SaveChanges();
+
+                return RedirectToAction("Create");
+            }
+
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
+            ViewBag.sbay = db.Bays;
+
+            return View(bay);
+        }
+
+
+        // GET: Bay/Create
+        public ActionResult Create(int? id)
+        {
+            ViewBag.SectionID = new SelectList( db.Sections, "SectionID", "SectionName");
+            ViewBag.sbay = db.Bays;
 
             Bay newBay = db.Bays.OrderByDescending(b => b.BayID).FirstOrDefault();
             newBay.XLocation = newBay.XLocation + newBay.BayWidth;
             newBay.BayWidth = 0;
             newBay.BayName++;
             return View(newBay);
-            //return View();   // remove when newbay is being used
         }
 
         // POST: Bay/Create
@@ -61,6 +92,10 @@ namespace FinalMerchBuild.Controllers
             {
                 db.Bays.Add(bay);
                 db.SaveChanges();
+                Bay newBay = db.Bays.OrderByDescending(b => b.BayID).FirstOrDefault();
+                newBay.XLocation = newBay.XLocation + newBay.BayWidth;
+                newBay.BayWidth = 0;
+                newBay.BayName++;
                 return RedirectToAction("Create");
             }
 
