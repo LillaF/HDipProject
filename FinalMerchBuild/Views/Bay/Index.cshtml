@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<FinalMerchBuild.Models.Bay>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Bay";
 }
 
-<h2>Index</h2>
+<h2>Bay</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,9 +13,6 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Section.SectionName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SectionName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BayName)
@@ -36,9 +33,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Section.SectionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SectionName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BayName)

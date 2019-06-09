@@ -47,6 +47,7 @@ namespace FinalMerchBuild.Controllers
             newBay.BayWidth = 0;
             newBay.BayName++;
             return View(newBay);
+            //return View();   // remove when newbay is being used
         }
 
         // POST: Bay/Create
@@ -54,7 +55,7 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BayID,SectionID,BayWidth,XLocation,YLocation")] Bay bay)
+        public ActionResult Create([Bind(Include = "BayID,SectionID,BayWidth,BayName,XLocation,YLocation")] Bay bay)
         {
             if (ModelState.IsValid)
             {

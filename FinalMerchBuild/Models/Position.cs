@@ -7,13 +7,9 @@ using System.Web;
 
 namespace FinalMerchBuild.Models
 {
+
     public class Position
     {
-        //public enum BayName
-        //{
-        //    A, B, C, D, E, F, G, H, I, J, K, L
-        //}
-
         [Key]
         public int PositionID { get; set; }
 
@@ -30,8 +26,8 @@ namespace FinalMerchBuild.Models
 
         [Display(Name = "Bay Name")]
         [Required]
-        //[RegularExpression(@"^[a-zA-L]+$", ErrorMessage = "Only letters A-L")]
-        public string BayName { get; set; }
+        //[RegularExpression(@"[a-zA-L]+$", ErrorMessage = "Only letters A-L")]
+        public BayName? BayName { get; set; }
 
         [Required]
         [Range(0, 9)]
