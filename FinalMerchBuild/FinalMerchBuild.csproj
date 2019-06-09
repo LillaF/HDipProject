@@ -266,12 +266,12 @@
     <Content Include="Views\Bay\Details.cshtml" />
     <Content Include="Views\Bay\Edit.cshtml" />
     <Content Include="Views\Bay\Index.cshtml" />
+    <Content Include="Views\Bay\CreateNew.cshtml" />
     <Content Include="Views\Position\Create.cshtml" />
     <Content Include="Views\Position\Delete.cshtml" />
     <Content Include="Views\Position\Details.cshtml" />
     <Content Include="Views\Position\Edit.cshtml" />
     <Content Include="Views\Position\Index.cshtml" />
-    <Content Include="Views\Bay\CreateNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

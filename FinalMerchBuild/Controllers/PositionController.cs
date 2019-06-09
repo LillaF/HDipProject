@@ -49,7 +49,7 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PositionID,SectionID,BayName,Shelf,Name,Size,UPC,XLocation")] Position position)
+        public ActionResult Create([Bind(Include = "PositionID,SectionID,BayName,Shelf,UPC,XLocation")] Position position)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PositionID,SectionID,BayName,Shelf,Name,Size,UPC,XLocation")] Position position)
+        public ActionResult Edit([Bind(Include = "PositionID,SectionID,BayName,Shelf,UPC,XLocation")] Position position)
         {
             if (ModelState.IsValid)
             {
