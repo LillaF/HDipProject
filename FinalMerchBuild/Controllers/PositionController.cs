@@ -38,10 +38,49 @@ namespace FinalMerchBuild.Controllers
         }
 
         // GET: Position/Create
-        public ActionResult Create()
+        public ActionResult CreateNew()
         {
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName");
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateNew([Bind(Include = "PositionID,SectionID,BayName,Shelf,UPC,XLocation")] Position position)
+        {
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", position.SectionID);
+
+            if (ModelState.IsValid)
+            {
+
+                {
+                    db.Positions.Add(position);
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Create");
+            }
+
+
+            return View();
+        }
+
+        // GET: Position/Create
+        public ActionResult Create(int? id)
+        {
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName");
+
+            Position newpos = db.Positions.OrderByDescending(b => b.PositionID).FirstOrDefault();
+            if (newpos.UPC == 1)
+            {
+                newpos.Shelf++;
+            }
+            if (newpos.UPC == 2)
+            {
+                newpos.BayName++;
+                newpos.Shelf = 1;
+            }
+            newpos.UPC = 0;
+            return View(newpos);
         }
 
         // POST: Position/Create
@@ -53,11 +92,25 @@ namespace FinalMerchBuild.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Positions.Add(position);
-                db.SaveChanges();
+
+                Position newpos = db.Positions.OrderByDescending(b => b.PositionID).FirstOrDefault();
+                if (newpos.UPC > 2)
+                {
+                    db.Positions.Add(position);
+                    db.SaveChanges();
+                }
+                //if (newpos.UPC == 1)
+                //{
+                //    newpos.Shelf++;
+                //}
+                //if (newpos.UPC == 2)
+                //{
+                //    newpos.BayName++;
+                //    newpos.Shelf = 1;
+                //}
+                //newpos.UPC = 0;
                 return RedirectToAction("Create");
             }
-
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", position.SectionID);
             return View(position);
         }

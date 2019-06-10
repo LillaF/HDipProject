@@ -25,7 +25,7 @@ namespace FinalMerchBuild.Models
         public int Shelf { get; set; }
 
         [Required]
-        public string UPC { get; set; }
+        public double UPC { get; set; }
 
         [Required]
         public double XLocation { get; set; }

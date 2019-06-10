@@ -5,15 +5,14 @@ namespace FinalMerchBuild.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FinalMerchBuild.DAL.MerchBuildContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<FinalMerchBuild.Models.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "FinalMerchBuild.DAL.MerchBuildContext";
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(FinalMerchBuild.DAL.MerchBuildContext context)
+        protected override void Seed(FinalMerchBuild.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
