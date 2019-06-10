@@ -15,6 +15,7 @@ namespace FinalMerchBuild.Models
         [Key]
         public int BayID { get; set; }
 
+        [Range(1, 9)]
         [Display(Name = "Bay Name")]
         [Required]
         public int BayName { get; set; }

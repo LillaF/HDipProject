@@ -59,6 +59,8 @@ namespace FinalMerchBuild.Controllers
             {
                 db.Bays.Add(bay);
                 db.SaveChanges();
+                Bay newBay = db.Bays.OrderByDescending(b => b.BayID).FirstOrDefault();
+
 
                 return RedirectToAction("Create");
             }
@@ -74,7 +76,7 @@ namespace FinalMerchBuild.Controllers
 
             Bay newBay = db.Bays.OrderByDescending(b => b.BayID).FirstOrDefault();
             newBay.XLocation = newBay.XLocation + newBay.BayWidth;
-            newBay.BayWidth = 0;
+            //newBay.BayWidth = 0;
             newBay.BayName++;
             return View(newBay);
         }

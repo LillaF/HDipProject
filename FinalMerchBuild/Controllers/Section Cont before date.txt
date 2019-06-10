@@ -1,18 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FinalMerchBuild.DAL;
 using FinalMerchBuild.Models;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using PagedList;
 
 namespace FinalMerchBuild.Controllers
 {
@@ -20,40 +15,11 @@ namespace FinalMerchBuild.Controllers
     {
         private MerchBuildContext db = new MerchBuildContext();
 
-        public ActionResult Index(string sortOrder,string searchString)
+        // GET: Section
+        public ActionResult Index()
         {
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            var sections = from s in db.Sections
-                          select s;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                sections = sections.Where(s => s.SectionName.Contains(searchString));
-
-            }
-
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    sections = sections.OrderByDescending(s => s.SectionName);
-                    break;
-                case "Date":
-                    sections = sections.OrderBy(s => s.StartDate);
-                    break;
-                case "date_desc":
-                    sections = sections.OrderByDescending(s => s.StartDate);
-                    break;
-
-            }
-            return View(sections.ToList()); 
+            return View(db.Sections.ToList());
         }
-
-        //// GET: Section
-        //public ActionResult Index()
-        //{
-        //    return View(db.Sections.ToList());
-        //}
 
         // GET: Section/Details/5
         public ActionResult Details(int? id)

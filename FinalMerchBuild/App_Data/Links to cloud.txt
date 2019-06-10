@@ -1,0 +1,3 @@
+https://finalmerchbuild.azurewebsites.net/
+
+http://realmerchplan.eu-west-1.elasticbeanstalk.com/

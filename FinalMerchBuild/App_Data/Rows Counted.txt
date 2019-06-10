@@ -1,0 +1,15 @@
+        excelConnection.Open();
+        OleDbDataReader dReader;
+        dReader = cmd.ExecuteReader();
+
+        SqlBulkCopy sqlBulk = new SqlBulkCopy(strConnection);
+       
+        sqlBulk.DestinationTableName = "tbl_import";
+        sqlBulk.ColumnMappings.Add("Country", "Country");
+        //additional ColumnMappings removed for sample
+        //sqlBulk.SqlRowsCopied += new SqlRowsCopiedEventHandler(as_SqlRowsCopied);
+        sqlBulk.BatchSize = 500;
+        sqlBulk.NotifyAfter = 1000;
+        sqlBulk.WriteToServer(dReader);
+        sqlBulk.Close();
+        //RowsCopiedLabel.Text = bc_SqlRowsCopied;

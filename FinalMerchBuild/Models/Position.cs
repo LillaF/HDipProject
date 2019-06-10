@@ -16,12 +16,13 @@ namespace FinalMerchBuild.Models
         [Key]
         public int PositionID { get; set; }
 
+        [Range(1, 9)]
         [Display(Name = "Bay Name")]
         [Required]
         public int BayName { get; set; }
 
         [Required]
-        [Range(0, 9)]
+        [Range(1, 9)]
         public int Shelf { get; set; }
 
         [Required]
