@@ -81,17 +81,54 @@ namespace FinalMerchBuild.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SectionID,SectionName,Height,Width,Depth,StartDate")] Section section)
+        public ActionResult Create([Bind(Include = "SectionID,SectionName,Height,Width,Depth,NumBays,StartDate")] Section section)
         {
             if (ModelState.IsValid)
             {
                 db.Sections.Add(section);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                int bn = 1;
+                int bw = 0;
+                int nb = section.NumBays;
+                Bay tmpBay = new Bay();
+
+                for (int i = 0; i < nb; i++)
+                { 
+                    tmpBay.SectionID = section.SectionID;
+                    tmpBay.BayName = bn;
+                    bn++;
+                    tmpBay.XLocation = bw;
+                    tmpBay.BayWidth = section.Width / section.NumBays;
+                    bw = bw + (Convert.ToInt32(tmpBay.BayWidth));
+                    tmpBay.YLocation = 0;
+                    db.Bays.Add(tmpBay);
+                    db.SaveChanges();
+                }
             }
 
-            return View(section);
+            return RedirectToAction("Details/1");
+
+            //return View(Details);
         }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateBays(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Section section = db.Sections.Find(id);
+        //    if (section == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+
+        //    return View();
+        //}
+
 
         // GET: Section/Edit/5
         public ActionResult Edit(int? id)

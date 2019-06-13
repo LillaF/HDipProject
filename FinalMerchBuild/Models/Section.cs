@@ -23,11 +23,15 @@ namespace FinalMerchBuild.Models
 
         [Display(Name = "Section Width")]
         [Required, Range(30, 1200)]
-        public double Width { get; set; }
+        public int Width { get; set; }
 
         [Display(Name = "Section Depth")]
         [Required, Range(15, 60)]
-        public double Depth { get; set; }
+        public int Depth { get; set; }
+
+        [Display(Name = "Number of Bays")]
+        [Required, Range(1, 12)]
+        public int NumBays { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

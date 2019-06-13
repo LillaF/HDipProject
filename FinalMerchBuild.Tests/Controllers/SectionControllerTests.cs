@@ -15,16 +15,6 @@ namespace FinalMerchBuild.Tests.Controllers
     public class SectionControllerTests
     {
 
-        //[TestMethod()]
-        //public void EditForNullIdReturnsBadRequest()
-        //{
-        //    var controller = new SectionController();
-        //    var expected = (int)System.Net.HttpStatusCode.BadRequest;
-
-        //    var badResult = await controller.Edit(null) as HttpStatusCodeResult;
-        //    Assert.AreEqual(expected, badResult.StatusCode);
-        //}
-
 
         [TestMethod]
         public void DeleteFailsIfNullID()
