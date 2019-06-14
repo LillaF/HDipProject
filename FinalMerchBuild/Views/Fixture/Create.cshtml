@@ -1,4 +1,4 @@
-﻿@model FinalMerchBuild.Models.Bay
+﻿@model FinalMerchBuild.Models.Fixture
 
 @{
     ViewBag.Title = "Create";
@@ -12,14 +12,22 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Bay</h4>
+        <h4>Fixture</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.SectionID, "SectionID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SectionName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SectionID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SectionID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.SectionName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SectionName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BayID, "BayID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BayID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BayID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -32,26 +40,34 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BayHeight, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FixName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BayHeight, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BayHeight, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.FixName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FixName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BayWidth, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FixHeight, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BayWidth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BayWidth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.FixHeight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FixHeight, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BayDepth, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FixWidth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BayDepth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BayDepth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.FixWidth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FixWidth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FixDepth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FixDepth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FixDepth, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -68,14 +84,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.YLocation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.YLocation, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumFix, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumFix, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumFix, "", new { @class = "text-danger" })
             </div>
         </div>
 

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<FinalMerchBuild.Models.Bay>
 
 @{
-    ViewBag.Title = "Bay";
+    ViewBag.Title = "Index";
 }
 
-<h2>Bay</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateNew")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -18,13 +18,22 @@
             @Html.DisplayNameFor(model => model.BayName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.BayHeight)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.BayWidth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BayDepth)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.XLocation)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.YLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumFix)
         </th>
         <th></th>
     </tr>
@@ -38,13 +47,22 @@
             @Html.DisplayFor(modelItem => item.BayName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.BayHeight)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.BayWidth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BayDepth)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.XLocation)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.YLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumFix)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BayID }) |

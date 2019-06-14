@@ -1,10 +1,10 @@
 ﻿@model FinalMerchBuild.Models.Bay
 
 @{
-    ViewBag.Title = "Bay Details";
+    ViewBag.Title = "Details";
 }
 
-<h2>Bay Details</h2>
+<h2>Details</h2>
 
 <div>
     <h4>Bay</h4>
@@ -27,11 +27,27 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.BayHeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BayHeight)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.BayWidth)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.BayWidth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BayDepth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BayDepth)
         </dd>
 
         <dt>
@@ -48,6 +64,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.YLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumFix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumFix)
         </dd>
 
     </dl>

@@ -1,0 +1,90 @@
+﻿@model FinalMerchBuild.Models.Fixture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fixture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bay.BayID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bay.BayID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SectionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FixName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FixName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FixHeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FixHeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FixWidth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FixWidth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FixDepth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FixDepth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FixtureID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

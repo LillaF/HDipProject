@@ -21,16 +21,21 @@ namespace FinalMerchBuild.Models
         public int BayName { get; set; }
 
         [Required]
+        public double BayHeight { get; set; }
+
+        [Required]
         public double BayWidth { get; set; }
+
+        [Required]
+        public double BayDepth { get; set; }
 
         [Required]
         public double XLocation { get; set; }
         [Required]
         public double YLocation { get; set; }
 
-        [Display(Name = "Number of Bays")]
-        [Required, Range(1, 12)]
-        public int NumBays { get; set; }
+        [Display(Name = "Number of Fixtures")]
+        public int NumFix { get; set; }
 
 
         public virtual Section Section { get; set; }

@@ -87,48 +87,73 @@ namespace FinalMerchBuild.Controllers
             {
                 db.Sections.Add(section);
                 db.SaveChanges();
-
+            }
+            //  Create default Bays at the same time, these can be edited, if required
+            {
                 int bn = 1;
                 int bw = 0;
                 int nb = section.NumBays;
                 Bay tmpBay = new Bay();
+                Fixture tmpFix = new Fixture();
+
 
                 for (int i = 0; i < nb; i++)
-                { 
+                {
                     tmpBay.SectionID = section.SectionID;
                     tmpBay.BayName = bn;
                     bn++;
+                    tmpBay.BayHeight = section.Height;
+                    tmpBay.BayDepth = section.Depth;
                     tmpBay.XLocation = bw;
                     tmpBay.BayWidth = section.Width / section.NumBays;
                     bw = bw + (Convert.ToInt32(tmpBay.BayWidth));
                     tmpBay.YLocation = 0;
+                    if (section.Height > 100)
+                    {
+                        tmpBay.NumFix = (Convert.ToInt32(section.Height) / 25);
+                    }
+                    else
+                    {
+                        tmpBay.NumFix = (Convert.ToInt32(section.Height) / 20);
+                    }
+
                     db.Bays.Add(tmpBay);
-                    db.SaveChanges();
+
+                    //  Create default Fixtures at the same time, these can be edited, if required
+                    int fn = 1;
+                    double xl = 0;
+                    double yl = 0;
+                    int nf = tmpBay.NumFix;
+
+                    for (int f = 0; f < nf; f++)
+                    {
+                        tmpFix.SectionName = section.SectionName;
+                        tmpFix.BayID = tmpBay.BayID;
+                        tmpFix.BayName = tmpBay.BayName;
+                        tmpFix.FixName = fn;
+                        fn++;
+                        tmpFix.FixHeight = 2;
+                        tmpFix.FixWidth = tmpBay.BayWidth;
+                        tmpFix.FixDepth = tmpBay.BayDepth;
+                        tmpFix.XLocation = xl;
+                        xl = xl + tmpFix.FixWidth;
+                        tmpFix.YLocation = yl;
+                        if (section.Height > 100)
+                        {
+                            yl = yl + 25;
+                        }
+                        else
+                        {
+                            yl = yl + 20;
+                        }
+
+                        db.Fixtures.Add(tmpFix);
+                        db.SaveChanges();
+                    }
                 }
             }
-
-            return RedirectToAction("Details/1");
-
-            //return View(Details);
+            return View(section);
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult CreateBays(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Section section = db.Sections.Find(id);
-        //    if (section == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-
-        //    return View();
-        //}
-
 
         // GET: Section/Edit/5
         public ActionResult Edit(int? id)

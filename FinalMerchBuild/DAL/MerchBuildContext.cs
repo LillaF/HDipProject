@@ -24,6 +24,8 @@ namespace FinalMerchBuild.DAL
 
         }
 
+        public System.Data.Entity.DbSet<FinalMerchBuild.Models.Fixture> Fixtures { get; set; }
+
         //public System.Data.Entity.DbSet<FinalMerchBuild.Models.Product> Products { get; set; }
 
     }

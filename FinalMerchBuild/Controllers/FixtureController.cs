@@ -11,112 +11,112 @@ using FinalMerchBuild.Models;
 
 namespace FinalMerchBuild.Controllers
 {
-    public class BayController : Controller
+    public class FixtureController : Controller
     {
         private MerchBuildContext db = new MerchBuildContext();
 
-        // GET: Bay
+        // GET: Fixture
         public ActionResult Index()
         {
-            var bays = db.Bays.Include(b => b.Section);
-            return View(bays.ToList());
+            var fixtures = db.Fixtures.Include(f => f.Bay);
+            return View(fixtures.ToList());
         }
 
-        // GET: Bay/Details/5
+        // GET: Fixture/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bay bay = db.Bays.Find(id);
-            if (bay == null)
+            Fixture fixture = db.Fixtures.Find(id);
+            if (fixture == null)
             {
                 return HttpNotFound();
             }
-            return View(bay);
+            return View(fixture);
         }
 
-        // GET: Bay/Create
+        // GET: Fixture/Create
         public ActionResult Create()
         {
-            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName");
+            ViewBag.BayID = new SelectList(db.Bays, "BayID", "BayID");
             return View();
         }
 
-        // POST: Bay/Create
+        // POST: Fixture/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BayID,SectionID,BayName,BayHeight,BayWidth,BayDepth,XLocation,YLocation,NumFix")] Bay bay)
+        public ActionResult Create([Bind(Include = "FixtureID,SectionName,BayID,BayName,FixName,FixHeight,FixWidth,FixDepth,XLocation,YLocation")] Fixture fixture)
         {
             if (ModelState.IsValid)
             {
-                db.Bays.Add(bay);
+                db.Fixtures.Add(fixture);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
-            return View(bay);
+            ViewBag.BayID = new SelectList(db.Bays, "BayID", "BayID", fixture.BayID);
+            return View(fixture);
         }
 
-        // GET: Bay/Edit/5
+        // GET: Fixture/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bay bay = db.Bays.Find(id);
-            if (bay == null)
+            Fixture fixture = db.Fixtures.Find(id);
+            if (fixture == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
-            return View(bay);
+            ViewBag.BayID = new SelectList(db.Bays, "BayID", "BayID", fixture.BayID);
+            return View(fixture);
         }
 
-        // POST: Bay/Edit/5
+        // POST: Fixture/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BayID,SectionID,BayName,BayHeight,BayWidth,BayDepth,XLocation,YLocation,NumFix")] Bay bay)
+        public ActionResult Edit([Bind(Include = "FixtureID,SectionName,BayID,BayName,FixName,FixHeight,FixWidth,FixDepth,XLocation,YLocation")] Fixture fixture)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bay).State = EntityState.Modified;
+                db.Entry(fixture).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "SectionName", bay.SectionID);
-            return View(bay);
+            ViewBag.BayID = new SelectList(db.Bays, "BayID", "BayID", fixture.BayID);
+            return View(fixture);
         }
 
-        // GET: Bay/Delete/5
+        // GET: Fixture/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bay bay = db.Bays.Find(id);
-            if (bay == null)
+            Fixture fixture = db.Fixtures.Find(id);
+            if (fixture == null)
             {
                 return HttpNotFound();
             }
-            return View(bay);
+            return View(fixture);
         }
 
-        // POST: Bay/Delete/5
+        // POST: Fixture/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Bay bay = db.Bays.Find(id);
-            db.Bays.Remove(bay);
+            Fixture fixture = db.Fixtures.Find(id);
+            db.Fixtures.Remove(fixture);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

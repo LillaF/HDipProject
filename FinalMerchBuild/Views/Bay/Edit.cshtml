@@ -1,10 +1,10 @@
 ﻿@model FinalMerchBuild.Models.Bay
 
 @{
-    ViewBag.Title = "Bay Edit";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Bay Edit</h2>
+<h2>Edit</h2>
 
 
 @using (Html.BeginForm())
@@ -34,10 +34,26 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.BayHeight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BayHeight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BayHeight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.BayWidth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BayWidth, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BayWidth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BayDepth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BayDepth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BayDepth, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -54,6 +70,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.YLocation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.YLocation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumFix, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumFix, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumFix, "", new { @class = "text-danger" })
             </div>
         </div>
 

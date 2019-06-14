@@ -15,6 +15,7 @@ namespace FinalMerchBuild.Models
         [Required]
         [StringLength(50)]
         [Display(Name = "Section Name")]
+
         public string SectionName { get; set; }
 
         [Display(Name = "Section Height")]
