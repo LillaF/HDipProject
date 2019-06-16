@@ -9,11 +9,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Bay.BayID)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.SectionName)
         </th>
@@ -41,41 +45,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bay.BayID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SectionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BayName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FixName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FixHeight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FixWidth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FixDepth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.XLocation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YLocation)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FixtureID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FixtureID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FixtureID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SectionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FixName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FixHeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FixWidth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FixDepth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.XLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YLocation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FixtureID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FixtureID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FixtureID })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -15,15 +15,43 @@ namespace FinalMerchBuild.Controllers
     {
         private MerchBuildContext db = new MerchBuildContext();
 
-        // GET: Fixture
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            var fixtures = db.Fixtures.Include(f => f.Bay);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var fixtures = from s in db.Fixtures
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                fixtures = fixtures.Where(s => s.SectionName.Contains(searchString));
+
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    fixtures = fixtures.OrderByDescending(s => s.SectionName);
+                    break;
+                case "date_desc":
+                    fixtures = fixtures.OrderByDescending(s => s.BayName);
+                    break;
+
+            }
             return View(fixtures.ToList());
         }
 
-        // GET: Fixture/Details/5
-        public ActionResult Details(int? id)
+
+
+            //// GET: Fixture
+            //public ActionResult Index()
+            //{
+            //    var fixtures = db.Fixtures.Include(f => f.Bay);
+            //    return View(fixtures.ToList());
+            //}
+
+            // GET: Fixture/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {

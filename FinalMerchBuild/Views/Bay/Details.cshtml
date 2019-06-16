@@ -57,7 +57,7 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.BayID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
-<h4>Fixtures within selected Bay - not currently picking up Fixture Details</h4>
+<h4>Fixtures within selected Bay</h4>
 <div>
     <dl>
         <dd>
@@ -71,34 +71,40 @@
                     <th>Y Location</th>
 
                 </tr>
-                @*@foreach(var item in Model.Fixtures)
+                @foreach(var item in Model.Fixtures)
                 {
 
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BayName)
-                        </td>
+                <tr>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BayWidth)
-                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FixName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FixHeight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FixWidth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FixDepth)
+                    </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.XLocation)
-                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.XLocation)
+                    </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.YLocation)
-                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YLocation)
+                    </td>
 
-                        <td>
+                    <td>
 
-                            @Html.ActionLink("Edit", "../Bay/Edit", new { id = item.FixtureID }) |
-                            @Html.ActionLink("Details", "../Bay/Details", new { id = item.FixtureID }) |
-                            @Html.ActionLink("Delete", "../Bay/Delete", new { id = item.FixtureID })
-                        </td>
-                    </tr>
-                }*@
+                        @Html.ActionLink("Edit", "../Bay/Edit", new { id = item.FixtureID }) |
+                        @Html.ActionLink("Details", "../Bay/Details", new { id = item.FixtureID }) |
+                        @Html.ActionLink("Delete", "../Bay/Delete", new { id = item.FixtureID })
+                    </td>
+                </tr>
+                }
 
             </table>
         </dd>

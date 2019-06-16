@@ -135,8 +135,8 @@ namespace FinalMerchBuild.Controllers
                         tmpFix.FixHeight = 2;
                         tmpFix.FixWidth = tmpBay.BayWidth;
                         tmpFix.FixDepth = tmpBay.BayDepth;
+                        xl = tmpBay.XLocation;
                         tmpFix.XLocation = xl;
-                        xl = xl + tmpFix.FixWidth;
                         tmpFix.YLocation = yl;
                         if (section.Height > 100)
                         {
