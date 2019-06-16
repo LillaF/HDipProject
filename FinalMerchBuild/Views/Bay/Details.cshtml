@@ -1,82 +1,106 @@
 ﻿@model FinalMerchBuild.Models.Bay
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Bay Details";
 }
 
-<h2>Details</h2>
+<h2>Bay Details</h2>
 
 <div>
-    <h4>Bay</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Section.SectionName)
-        </dt>
+    <dl>
 
         <dd>
-            @Html.DisplayFor(model => model.Section.SectionName)
+            <table class="table" , style="background-color:#e2eef6">
+
+                <tr>
+                    <th>Bay Name</th>
+                    <th>Bay Height</th>
+                    <th>Bay Width</th>
+                    <th>Bay Depth</th>
+                    <th>X Location</th>
+                    <th>Y Location</th>
+                    <th>Num Fixtures</th>
+
+                </tr>
+
+                <td>
+                    @Html.DisplayFor(model => model.BayName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.BayHeight)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.BayWidth)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.BayDepth)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.XLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.YLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.NumFix)
+                </td>
+            </table>
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BayName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BayName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BayHeight)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BayHeight)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BayWidth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BayWidth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BayDepth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BayDepth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.XLocation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.XLocation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.YLocation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.YLocation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumFix)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumFix)
-        </dd>
-
     </dl>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BayID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<h4>Fixtures within selected Bay - not currently picking up Fixture Details</h4>
+<div>
+    <dl>
+        <dd>
+            <table class="table" , style="background-color:#f3f6ec">
+                <tr>
+                    <th>Fix Name</th>
+                    <th>Fix Height</th>
+                    <th>Fix Width</th>
+                    <th>Fix Depth</th>
+                    <th>X Location</th>
+                    <th>Y Location</th>
+
+                </tr>
+                @*@foreach(var item in Model.Fixtures)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BayName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BayWidth)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.XLocation)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YLocation)
+                        </td>
+
+                        <td>
+
+                            @Html.ActionLink("Edit", "../Bay/Edit", new { id = item.FixtureID }) |
+                            @Html.ActionLink("Details", "../Bay/Details", new { id = item.FixtureID }) |
+                            @Html.ActionLink("Delete", "../Bay/Delete", new { id = item.FixtureID })
+                        </td>
+                    </tr>
+                }*@
+
+            </table>
+        </dd>
+    </dl>
+</div>
