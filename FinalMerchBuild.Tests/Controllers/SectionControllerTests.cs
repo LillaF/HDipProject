@@ -36,7 +36,7 @@ namespace FinalMerchBuild.Tests.Controllers
                 SectionName = "Test Section Name is way  50 characters",
                 Height = 3,
                 Width = 6,
-                Depth = 0.5
+                Depth = 30
             };
             var context = new ValidationContext(newSection, null, null);
             var result = new List<ValidationResult>();
@@ -57,7 +57,7 @@ namespace FinalMerchBuild.Tests.Controllers
                 SectionName = "Test Section than 50 characters",
                 Height = 3,
                 Width = 6,
-                Depth = 0.5
+                Depth = 20
             };
             var context = new ValidationContext(newSection, null, null);
             var result = new List<ValidationResult>();

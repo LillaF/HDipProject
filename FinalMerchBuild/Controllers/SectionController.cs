@@ -149,10 +149,11 @@ namespace FinalMerchBuild.Controllers
 
                         db.Fixtures.Add(tmpFix);
                         db.SaveChanges();
+
                     }
                 }
             }
-            return View(section);
+            return RedirectToAction("Index");
         }
 
         // GET: Section/Edit/5
